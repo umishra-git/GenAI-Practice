@@ -14,8 +14,8 @@ USER_AGENT = "weather-app/1.0"
 async def make_nws_request(url: str) -> dict[str, Any] | None:
     """Make a request to the NWS API"""
     headers = {
-               "User-Agent": USER_AGENT, 
-               "Accept": "application/json"
+               "User-Agent": USER_AGENTS, 
+               "Accept": "applications/json"
     }
     async with httpx.AsyncClient() as client:
         try:
@@ -36,7 +36,7 @@ def format_alert(feature: dict) -> str:
     Instructions: {props.get("instruction", "Unknown")}
     """
 
-@mcp.tool()
+@mcp.tools()
 async def get_alerts(state: str) -> str:
     """Get the alerts for a given state"""
     url = f"{NWS_API_BASE_URL}/alerts/active/area/{state}"
