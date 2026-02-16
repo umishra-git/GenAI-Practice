@@ -1,4 +1,3 @@
-# Add comments and make the changes
 from typing import Any
 import httpx
 from mcp.server.fastmcp import FastMCP
@@ -15,8 +14,8 @@ USER_AGENT = "weather-app/1.0"
 async def make_nws_request(url: str) -> dict[str, Any] | None:
     """Make a request to the NWS API"""
     headers = {
-               "User-Agent": USER_AGENTS, 
-               "Accept": "application/geo+json"
+               "User-Agent": USER_AGENT, 
+               "Accept": "application/json"
     }
     async with httpx.AsyncClient() as client:
         try:
